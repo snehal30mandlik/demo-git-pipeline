@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git repo') {
+            steps {
+                git credentialsId: '0ea2ea28-3c5d-4241-b790-bfbdcd4947a5', url: 'https://github.com/snehal30mandlik/demo-git-pipeline.git'
+                sh 'cat demo.txt'
+            }
+        }
+        stage('Hello') {
+            steps {
+                git credentialsId: '0ea2ea28-3c5d-4241-b790-bfbdcd4947a5', url: 'https://github.com/snehal30mandlik/demo-git-pipeline.git'
+                sh 'cat demo.txt'
+                echo 'Hello World'
+            }
+        }
+    }
+}
