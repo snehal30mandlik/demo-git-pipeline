@@ -1,6 +1,6 @@
 pipeline {
     agent any
-
+    tools { nodejs "mynodejs"}
     stages {
         stage('Git repo') {
             steps {
@@ -10,8 +10,12 @@ pipeline {
         }
         stage('Hello') {
             steps {
-               
                 echo 'Hello World'
+            }
+        }
+        stage('mynodejs stage') {
+            steps {
+               sh 'npm install'
             }
         }
     }
