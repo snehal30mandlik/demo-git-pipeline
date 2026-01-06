@@ -27,5 +27,13 @@ pipeline {
                archiveArtifacts artifacts: '*', followSymlinks: false
             }
         }
+        stage('My Secret') {
+            steps {
+               withCredentials([string(credentialsId: 'mysecret', variable: 'mysecret')]) {
+    // some block
+    echo mysecret
+}
+            }
+        }
     }
 }
